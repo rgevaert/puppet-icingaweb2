@@ -19,8 +19,8 @@ define icingaweb2::module::fileshipper::import(
   $conf_dir        = $::icingaweb2::params::conf_dir
   $module_conf_dir = "${conf_dir}/modules/fileshipper"
 
-  icingaweb2::inisection { "fileshipper-import-${basedir}":
-    section_name => $basedir,
+  icingaweb2::inisection { "fileshipper-import-${import}":
+    section_name => $import,
     target       => "${module_conf_dir}/imports.ini",
     settings     => {
       'basedir' => $basedir,
