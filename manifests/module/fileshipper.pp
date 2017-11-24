@@ -30,13 +30,16 @@ class icingaweb2::module::fileshipper(
   Enum['absent', 'present'] $ensure         = 'present',
   String                    $git_repository = 'https://github.com/Icinga/icingaweb2-module-fileshipper.git',
   Optional[String]          $git_revision   = undef,
+  Hash                      $basedirs       = {},
   Hash                      $importsources  = {},
 ){
-  create_resources('icingaweb2::module::fileshipper::importsource', $importsources)
-
   icingaweb2::module {'fileshipper':
     ensure         => $ensure,
     git_repository => $git_repository,
     git_revision   => $git_revision,
   }
+  $conf_dir   = "${::icingaweb2::params::conf_dir}/modules/fileshipper"
+
+  create_resources('icingaweb2::module::fileshipper::import', $basedirs)
+  create_resources('icingaweb2::module::fileshipper::importsource', $importsources)
 }
