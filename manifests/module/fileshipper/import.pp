@@ -5,7 +5,7 @@
 # === Parameters
 #
 # [*import*]
-#   The name of the import.
+#   The name of the import.  Default: resource title.
 #
 # [*basedir*]
 #   The basedir of your import.
