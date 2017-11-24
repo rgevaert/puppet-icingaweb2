@@ -38,8 +38,7 @@ class icingaweb2::module::fileshipper(
     git_repository => $git_repository,
     git_revision   => $git_revision,
   }
-  $conf_dir   = "${::icingaweb2::params::conf_dir}/modules/fileshipper"
 
   create_resources('icingaweb2::module::fileshipper::import', $basedirs)
-  create_resources('icingaweb2::module::fileshipper::importsource', $importsources)
+  #create_resources('icingaweb2::module::fileshipper::importsource', $importsources)
 }
